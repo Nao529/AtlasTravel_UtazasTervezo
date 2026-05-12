@@ -1,4 +1,4 @@
-### AtlasTravel
+# AtlasTravel
 
 # Utazástervező Webalkalmazás – Részletes Specifikáció
 # Projekt célja
@@ -14,6 +14,7 @@ Az alkalmazás Single Page Application (SPA) jelleggel működik, ahol az oldala
 
 ---
 ### UML ábra:
+<img width="1124" height="806" alt="atlas_travel_uml" src="https://github.com/user-attachments/assets/7b2831a8-5e96-4061-b7eb-6ee4263a65be" />
 
 ---
 # Technológiák
