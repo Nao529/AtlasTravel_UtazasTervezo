@@ -12,11 +12,12 @@ export  class Foglalas{
         this.#datum=foglalas.datum;
         this.#letszam=foglalas.letszam;
         this.#utazas=foglalas.utazas;
+        this.szuloElem=szuloElem
 
         this.foglalasMegjelenit(szuloElem)
         this.foglalasElem=this.szuloElem.children().last();
         this.foglalasElem.find(".lemond").on("click",()=>{
-            this.ment
+            this.ment();
         })
 
     }
@@ -29,15 +30,17 @@ export  class Foglalas{
         window.dispatchEvent(esemeny);
     }
 
-    foglalasMegjelenit(szuloElem){
+    foglalasMegjelenit(){
         let txt=`
-            <div class="foglalas">
-                <h3>${this.#nev}</h3>
-                <p>${this.#email}</p>
-                <p>${this.#telefon}</p>
-                <p>${this.#datum}</p>
-                <p>${this.#letszam}</p>
-                <p>${this.#utazas}</p>
+            <div class="foglalasKartya">
+                <h2>${this.#nev}</h2>
+                <p><strong>Email:</strong> ${this.#email}</p>
+                <p><strong>Telefon:</strong> ${this.#telefon}</p>
+                <p><strong>Dátum:</strong> ${this.#datum}</p>
+                <p><strong>Létszám:</strong> ${this.#letszam} fő</p>
+                <p><strong>Utazás:</strong> ${this.#utazas}</p>
+                <p><strong>Összeg:</strong> ${this.osszegSzamol()} Ft</p>
+                <button class ="lemond">Lemondás</button>
             </div>
         `
         this.szuloElem.append(txt);
@@ -46,6 +49,28 @@ export  class Foglalas{
     osszegSzamol(){
         return this.#letszam*10000;
     }
+    get nev() {
+        return this.#nev
+    }
 
+    get email() {
+        return this.#email
+    }
+
+    get telefon() {
+        return this.#telefon
+    }
+
+    get datum() {
+        return this.#datum
+    }
+
+    get letszam() {
+        return this.#letszam
+    }
+
+    get utazas() {
+        return this.#utazas
+    }
 
 }
