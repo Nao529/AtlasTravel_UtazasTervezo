@@ -15,11 +15,15 @@ export  class Foglalas{
         this.szuloElem=szuloElem
 
         this.foglalasMegjelenit(szuloElem)
-        this.foglalasElem=this.szuloElem.children().last();
-        this.foglalasElem.find(".lemond").on("click",()=>{
-            this.ment();
-        })
+        this.foglalasElem =
+            this.szuloElem.lastElementChild;
 
+        this.foglalasElem
+            .querySelector(".lemond").addEventListener("click", () => {
+
+                this.ment();
+
+            });
     }
 
     ment() {
@@ -43,7 +47,7 @@ export  class Foglalas{
                 <button class ="lemond">Lemondás</button>
             </div>
         `
-        this.szuloElem.append(txt);
+        this.szuloElem.innerHTML +=txt;
     }
     
     osszegSzamol(){
