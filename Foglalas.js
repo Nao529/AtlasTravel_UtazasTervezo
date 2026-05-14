@@ -15,11 +15,15 @@ export  class Foglalas{
         this.szuloElem=szuloElem
 
         this.foglalasMegjelenit(szuloElem)
-        this.foglalasElem=this.szuloElem.children().last();
-        this.foglalasElem.find(".lemond").on("click",()=>{
-            this.ment();
-        })
+        this.foglalasElem =
+            this.szuloElem.lastElementChild;
 
+        this.foglalasElem
+            .querySelector(".lemond").addEventListener("click", () => {
+
+                this.ment();
+
+            });
     }
 
     ment() {
