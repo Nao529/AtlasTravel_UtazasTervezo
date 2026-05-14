@@ -2,7 +2,7 @@ export const UtazasLista = [
   {
     nev: "Párizs",
     orszag: "Franciaország",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Paris'>",
+    kep: "kepek/parizs.jpg",
     leiras: "Romantikus városnézés, Eiffel-torony és Louvre.",
     ar: 89990,
     idotartam: "4 nap / 3 éj",
@@ -11,7 +11,7 @@ export const UtazasLista = [
   {
     nev: "Róma",
     orszag: "Olaszország",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Rome'>",
+    kep: "kepek/roma.jpg",
     leiras: "Colosseum, Vatikán, történelmi látnivalók.",
     ar: 99990,
     idotartam: "5 nap / 4 éj",
@@ -20,7 +20,7 @@ export const UtazasLista = [
   {
     nev: "Santorini",
     orszag: "Görögország",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Santorini'>",
+    kep: "kepek/santorini.jpg",
     leiras: "Fehér házak, kék kupolák, naplementék.",
     ar: 129990,
     idotartam: "6 nap / 5 éj",
@@ -29,7 +29,7 @@ export const UtazasLista = [
   {
     nev: "Bali",
     orszag: "Indonézia",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Bali'>",
+    kep: "kepek/bali.jpg",
     leiras: "Trópusi paradicsom és egzotikus kultúra.",
     ar: 139990,
     idotartam: "7 nap / 6 éj",
@@ -38,7 +38,7 @@ export const UtazasLista = [
   {
     nev: "Barcelona",
     orszag: "Spanyolország",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Barcelona'>",
+    kep: "kepek/barcelona.jpg",
     leiras: "Gaudí, tengerpart és városi élet.",
     ar: 94990,
     idotartam: "4 nap / 3 éj",
@@ -47,7 +47,7 @@ export const UtazasLista = [
   {
     nev: "London",
     orszag: "Egyesült Királyság",
-    kep: "<img src='https://via.placeholder.com/400x250?text=London'>",
+    kep: "kepek/london.jpg",
     leiras: "Big Ben, múzeumok, történelmi helyek.",
     ar: 109990,
     idotartam: "5 nap / 4 éj",
@@ -56,7 +56,7 @@ export const UtazasLista = [
   {
     nev: "Amszterdam",
     orszag: "Hollandia",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Amsterdam'>",
+    kep: "kepek/amszterdam.jpg",
     leiras: "Csatornák, múzeumok és különleges hangulat.",
     ar: 97990,
     idotartam: "4 nap / 3 éj",
@@ -65,7 +65,7 @@ export const UtazasLista = [
   {
     nev: "Prága",
     orszag: "Csehország",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Prague'>",
+    kep: "kepek/praga.jpg",
     leiras: "Mesebeli óváros és történelmi vár.",
     ar: 84990,
     idotartam: "3 nap / 2 éj",
@@ -74,7 +74,7 @@ export const UtazasLista = [
   {
     nev: "Bécs",
     orszag: "Ausztria",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Vienna'>",
+    kep: "kepek/becs.jpg",
     leiras: "Császári paloták és kávéházak.",
     ar: 79990,
     idotartam: "3 nap / 2 éj",
@@ -83,7 +83,7 @@ export const UtazasLista = [
   {
     nev: "Dubrovnik",
     orszag: "Horvátország",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Dubrovnik'>",
+    kep: "kepek/dubrovnik.jpg",
     leiras: "Óváros és tengerpart.",
     ar: 99990,
     idotartam: "5 nap / 4 éj",
@@ -92,7 +92,7 @@ export const UtazasLista = [
   {
     nev: "Isztambul",
     orszag: "Törökország",
-    kep: "<img src='https://via.placeholder.com/400x250?text=Istanbul'>",
+    kep: "kepek/isztambul.jpg",
     leiras: "Kelet és Nyugat találkozása.",
     ar: 104990,
     idotartam: "5 nap / 4 éj",
@@ -101,7 +101,7 @@ export const UtazasLista = [
   {
     nev: "New York",
     orszag: "USA",
-    kep: "<img src='https://via.placeholder.com/400x250?text=New+York'>",
+    kep: "kepek/newyork.jpg",
     leiras: "Felkarcolók és ikonikus városrészek.",
     ar: 199990,
     idotartam: "7 nap / 6 éj",

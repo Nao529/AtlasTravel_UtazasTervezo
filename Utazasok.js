@@ -3,5 +3,14 @@ export default class Utazasok {
     this.utazasLista = [];
     this.szuloElem = szuloElem;
   }
-  
+
+  hozzaad(utazas) {
+    this.utazasLista.push(utazas);
+  }
+  utazasokMegjelenit() {
+    this.szuloElem.innerHTML = "";
+    this.utazasLista.forEach(utazas => {
+      utazas.utazasMegjelenit();
+    });
+  }
 }
