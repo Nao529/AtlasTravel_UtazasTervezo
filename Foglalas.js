@@ -47,7 +47,7 @@ export  class Foglalas{
                 <button class ="lemond">Lemondás</button>
             </div>
         `
-        this.szuloElem.append(txt);
+        this.szuloElem.innerHTML +=txt;
     }
     
     osszegSzamol(){

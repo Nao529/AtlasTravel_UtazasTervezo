@@ -7,9 +7,23 @@ export class Foglalasok{
         this.szuloElem=szuloElem;
 
         this.foglalasokMegjelenit();
+        window.addEventListener(
+            "lemond",
+            (event) => {
+
+                this.lemond(event.detail);
+
+            }
+        );
     }
 
     foglalasokMegjelenit(){
-        
+        this.szuloElem.innerHTML = "";
+
+        this.#foglalasLista.forEach(
+            (foglalas) => {new Foglalas(foglalas,this.szuloElem);
+
+            }
+        );
     }
 }
