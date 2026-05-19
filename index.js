@@ -13,6 +13,8 @@ const FOGLALASOK_ELEM = document.querySelector("#foglalasok");
 const FOGLALASOK = new Foglalasok(FoglalasLista, FOGLALASOK_ELEM);
 
 const MENUPONTOK = document.querySelectorAll(".main-nav a");
+const ARNO = document.querySelector("#ar_no");
+const ARCSOKK = document.querySelector("#ar_csokk");
 
 UtazasLista.forEach(adat => {
   const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
@@ -38,4 +40,24 @@ MENUPONTOK.forEach((gomb) => {
             FOGLALASOK_ELEM.style.display = "none";
         }
     });
+});
+
+ARNO.addEventListener("click", () => {
+    UtazasLista.sort((a,b)=>a.ar-b.ar);
+    UTAZASOK.utazasLista = [];
+    UtazasLista.forEach(adat => {
+        const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
+        UTAZASOK.hozzaad(UTAZAS);
+    });
+    UTAZASOK.utazasokMegjelenit();
+});
+
+ARCSOKK.addEventListener("click", () => {
+    UtazasLista.sort((a,b)=>b.ar-a.ar);
+    UTAZASOK.utazasLista = [];
+    UtazasLista.forEach(adat => {
+        const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
+        UTAZASOK.hozzaad(UTAZAS);
+    });
+    UTAZASOK.utazasokMegjelenit();
 });
