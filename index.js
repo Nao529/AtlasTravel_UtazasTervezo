@@ -19,3 +19,33 @@ new Foglalasok(
     foglalasLista,
     foglalasKontener
 );
+
+const menuPontok = document.querySelectorAll(".main-nav a");
+
+const utazasokElem = document.querySelector("#utazasok");
+
+const foglalasokElem = document.querySelector("#foglalasok");
+
+foglalasokElem.style.display = "none";
+
+menuPontok.forEach((gomb) => {
+
+    gomb.addEventListener("click", (event) => {
+        event.preventDefault();
+        menuPontok.forEach((elem) => {
+            elem.classList.remove("active");
+        });
+        event.target.classList.add("active");
+        const szoveg = event.target.textContent;
+        if (szoveg === "Foglalásaim") {
+            utazasokElem.style.display = "none";
+            foglalasokElem.style.display = "grid";
+        }
+        if (szoveg === "Utazások") {
+            utazasokElem.style.display = "grid";
+            foglalasokElem.style.display = "none";
+        }
+
+    });
+
+});
