@@ -9,12 +9,8 @@ export class Foglalasok{
         this.foglalasokMegjelenit();
         window.addEventListener(
             "lemond",
-            (event) => {
+            (event) => {this.lemond(event.detail);});
 
-                this.lemond(event.detail);
-
-            }
-        );
     }
 
     foglalasokMegjelenit(){
@@ -25,5 +21,20 @@ export class Foglalasok{
 
             }
         );
+    }
+    hozzaad(ujFoglalas) {
+        this.#foglalasLista.push(ujFoglalas);
+        this.foglalasokMegjelenit();
+    }
+
+    lemond(foglalas) {
+        const index = this.#foglalasLista.findIndex(
+            (elem) => elem.nev === foglalas.nev
+        );
+
+        if (index !== -1) {
+            this.#foglalasLista.splice(index, 1);
+            this.foglalasokMegjelenit();
+        }
     }
 }
