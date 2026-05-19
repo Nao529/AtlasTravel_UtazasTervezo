@@ -1,4 +1,4 @@
-export  class Foglalas{
+export class Foglalas{
     #nev;
     #email;
     #telefon;
