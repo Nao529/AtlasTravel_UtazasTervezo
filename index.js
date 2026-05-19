@@ -15,6 +15,7 @@ const FOGLALASOK = new Foglalasok(FoglalasLista, FOGLALASOK_ELEM);
 const MENUPONTOK = document.querySelectorAll(".main-nav a");
 const ARNO = document.querySelector("#ar_no");
 const ARCSOKK = document.querySelector("#ar_csokk");
+const RENDEZES = document.querySelector(".rendezes")
 
 UtazasLista.forEach(adat => {
   const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
@@ -34,10 +35,12 @@ MENUPONTOK.forEach((gomb) => {
         if (szoveg === "Foglalásaim") {
             UTAZASOK_ELEM.style.display = "none";
             FOGLALASOK_ELEM.style.display = "grid";
+            RENDEZES.style.display = "none"
         }
         if (szoveg === "Utazások") {
             UTAZASOK_ELEM.style.display = "grid";
             FOGLALASOK_ELEM.style.display = "none";
+            RENDEZES.style.display = "flex";
         }
     });
 });
