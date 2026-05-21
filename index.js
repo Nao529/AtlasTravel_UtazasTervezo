@@ -20,6 +20,7 @@ const RENDEZES = document.querySelector(".rendezes");
 const ALAPERTELMEZETT = document.querySelector("#alap");
 const ARNO = document.querySelector("#ar_no");
 const ARCSOKK = document.querySelector("#ar_csokk");
+const RENDEZO = new Rendezes();
 
 /* UTAZASOK MEGJELENITESE */
 megjelenitUtazasok(UtazasLista);
@@ -61,24 +62,26 @@ MENUPONTOK.forEach(gomb => {
 });
 
 /* RENDEZES */
+function listaBetolt(lista){
+
+    UTAZASOK.utazasLista = [];
+
+    lista.forEach(adat => {
+        const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
+        UTAZASOK.hozzaad(UTAZAS);
+    });
+
+    UTAZASOK.utazasokMegjelenit();
+}
+
 ALAPERTELMEZETT.addEventListener("click", () => {
-    megjelenitUtazasok(Rendezes.alapertelmezett(EREDETI_UTAZASLISTA));
+    listaBetolt(EREDETI_UTAZASLISTA);
 });
 
 ARNO.addEventListener("click", () => {
-    megjelenitUtazasok(Rendezes.arNovekvo(utazasLista));
+    listaBetolt(RENDEZO.arNovekvo(UtazasLista));
 });
 
 ARCSOKK.addEventListener("click", () => {
-    megjelenitUtazasok(Rendezes.arCsokkeno(utazasLista));
+    listaBetolt(RENDEZO.arCsokkeno(UtazasLista));
 });
-function megjelenitUtazasok(lista) {
-  UTAZASOK.utazasLista = [];
-
-  lista.forEach(adat => {
-    const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
-    UTAZASOK.hozzaad(UTAZAS);
-  });
-
-  UTAZASOK.utazasokMegjelenit();
-}
