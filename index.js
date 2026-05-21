@@ -3,6 +3,7 @@ import Utazas from "./Utazas.js";
 import Utazasok from "./Utazasok.js";
 import { FoglalasLista } from "./FoglalasLista.js";
 import { Foglalasok } from "./Foglalasok.js";
+import Rendezes from "./Rendezes.js";
 
 /* VALTOZOK */
 /* utazas elemek */
@@ -21,11 +22,7 @@ const ARNO = document.querySelector("#ar_no");
 const ARCSOKK = document.querySelector("#ar_csokk");
 
 /* UTAZASOK MEGJELENITESE */
-UtazasLista.forEach(adat => {
-  const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
-  UTAZASOK.hozzaad(UTAZAS);
-});
-UTAZASOK.utazasokMegjelenit();
+megjelenitUtazasok(UtazasLista);
 
 /* eredeti lista sorrendje */
 const EREDETI_UTAZASLISTA = [];
@@ -65,28 +62,23 @@ MENUPONTOK.forEach(gomb => {
 
 /* RENDEZES */
 ALAPERTELMEZETT.addEventListener("click", () => {
-  UTAZASOK.utazasLista = [];
-  for (let i = 0; i < EREDETI_UTAZASLISTA.length; i++) {
-    const UTAZAS = new Utazas(EREDETI_UTAZASLISTA[i], UTAZASOK_ELEM);
-    UTAZASOK.hozzaad(UTAZAS);
-  }
-  UTAZASOK.utazasokMegjelenit();
+    megjelenitUtazasok(Rendezes.alapertelmezett(EREDETI_UTAZASLISTA));
 });
+
 ARNO.addEventListener("click", () => {
-  UtazasLista.sort((a, b) => a.ar - b.ar);
-  UTAZASOK.utazasLista = [];
-  UtazasLista.forEach(adat => {
-    const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
-    UTAZASOK.hozzaad(UTAZAS);
-  });
-  UTAZASOK.utazasokMegjelenit();
+    megjelenitUtazasok(Rendezes.arNovekvo(utazasLista));
 });
+
 ARCSOKK.addEventListener("click", () => {
-  UtazasLista.sort((a, b) => b.ar - a.ar);
+    megjelenitUtazasok(Rendezes.arCsokkeno(utazasLista));
+});
+function megjelenitUtazasok(lista) {
   UTAZASOK.utazasLista = [];
-  UtazasLista.forEach(adat => {
+
+  lista.forEach(adat => {
     const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
     UTAZASOK.hozzaad(UTAZAS);
   });
+
   UTAZASOK.utazasokMegjelenit();
-});
+}
