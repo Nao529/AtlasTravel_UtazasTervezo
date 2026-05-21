@@ -1,6 +1,4 @@
-/* =========================
-   RESET / ALAP
-   ========================= */
+/* ALAP */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,9 +14,7 @@ a {
   color: inherit;
 }
 
-/* =========================
-   HEADER / NAV
-   ========================= */
+/* HEADER / NAV */
 header {
   background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -54,9 +50,7 @@ header {
   cursor: pointer;
 }
 
-/* =========================
-   MAIN
-   ========================= */
+/* MAIN */
 main {
   padding: 30px;
   max-width: 1200px;
@@ -71,9 +65,7 @@ main {
   margin-bottom: 25px;
 }
 
-/* =========================
-   SEARCH BAR
-   ========================= */
+/* SEARCH BAR */
 .search-bar {
   background: #fff;
   padding: 15px;
@@ -99,9 +91,7 @@ main {
   cursor: pointer;
 }
 
-/* =========================
-   RENDEZÉS
-   ========================= */
+/* RENDEZÉS */
 .rendezes{
   display: flex;
   gap: 15px;
@@ -129,18 +119,12 @@ main {
   transform: scale(.97);
 }
 
-/* =========================
-   UTAZÁSOK LISTA
-   ========================= */
+/* UTAZÁS KÁRTYA / LISTA */
 #utazasok {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
-
-/* =========================
-   UTAZÁS KÁRTYA
-   ========================= */
 .utazas-kartya {
   background: #fff;
   border-radius: 8px;
@@ -187,9 +171,7 @@ main {
   cursor: pointer;
 }
 
-/* =========================
-   FOGLALÁS KÁRTYÁK
-   ========================= */
+/* FOGLALÁS KÁRTYÁK */
 #foglalasok {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -239,9 +221,7 @@ main {
   background-color: #bb2d3b;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
+/* FOOTER */
 footer {
   margin-top: 50px;
   background: #fff;
@@ -264,37 +244,33 @@ footer {
 }
 
 /* MODAL / RÉSZLETEK */
+/* háttér elsötétítés */
 #overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(2px);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
   z-index: 1000;
 }
+/* modal doboz */
 #modal {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 950px;
   background: #ffffff;
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
-  padding: 25px 30px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  border-radius: 18px;
+  padding: 32px 36px;
+  box-shadow: 0 22px 55px rgba(0,0,0,0.3);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 1001;
-  overflow-y: auto;
 }
+/* aktív állapot */
 #overlay[style*="block"] {
   opacity: 1;
   visibility: visible;
@@ -302,39 +278,85 @@ footer {
 #modal[style*="block"] {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
 }
 #modal-cim {
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 25px;
+  margin-bottom: 18px;
   color: #222;
-}
-#modal-leiras {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
 }
 #modal-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 18px;
+  right: 18px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: bold;
   cursor: pointer;
-  color: #666;
-  transition: color 0.2s, transform 0.2s;
+  color: #555;
+  z-index: 1002;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 #modal-close:hover {
   color: #dc3545;
   transform: scale(1.15);
 }
-@media (max-width: 600px) {
-  #modal {
-    padding: 20px;
-    max-height: 90vh;
-  }
-  #modal-cim {
-    font-size: 20px;
-  }
+.modal-kartya {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.modal-felso {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.modal-kep {
+  width: 360px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+.modal-szoveg {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.modal-rovid {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+.modal-hosszu {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+.modal-also {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.modal-adatok {
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* foglalás gomb */
+.modal-foglalas {
+  padding: 15px 45px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.modal-foglalas:hover {
+  background-color: #0b5ed7;
 }

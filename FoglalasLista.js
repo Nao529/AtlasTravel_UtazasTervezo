@@ -1,4 +1,4 @@
-export const FoglalasLista = [
+export const foglalasLista = [
     {
         nev: "Maja",
         email: "maja@gmail.com",

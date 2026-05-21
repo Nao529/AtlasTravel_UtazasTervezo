@@ -1,4 +1,4 @@
-export const UtazasLista = [
+export const utazasLista = [
   {
     nev: "Párizs",
     orszag: "Franciaország",

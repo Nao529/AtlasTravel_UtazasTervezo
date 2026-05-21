@@ -12,11 +12,11 @@ export default class Utazas {
     this.kartyaElem = document.createElement("div");
   }
 
-  /* UTAZÁS KÁRTYA (LISTA) */
+  /* UTAZÁS KÁRTYA */
   utazasMegjelenit() {
     this.kartyaElem.classList.add("utazas-kartya");
     this.kartyaElem.innerHTML = `
-      <img src="${this.kep}">
+      <img src="${this.kep}" alt="${this.nev}">
       <div class="kartya-tartalom">
         <h3>${this.nev}, ${this.orszag}</h3>
         <p class="leiras">${this.leiras}</p>
@@ -42,10 +42,14 @@ export default class Utazas {
     cim.textContent = `${this.nev} - ${this.orszag}`;
     leiras.innerHTML = `
       <div class="modal-kartya">
-        <img src="${this.kep}" class="modal-kep">
-        <div class="modal-info">
-          <p class="modal-rovid">${this.leiras}</p>
-          <p class="modal-hosszu">${this.hosszuLeiras}</p>
+        <div class="modal-felso">
+          <img src="${this.kep}" alt="${this.nev}" class="modal-kep">
+          <div class="modal-szoveg">
+            <p class="modal-rovid">${this.leiras}</p>
+            <p class="modal-hosszu">${this.hosszuLeiras}</p>
+          </div>
+        </div>
+        <div class="modal-also">
           <div class="modal-adatok">
             <div><strong>Időtartam:</strong> ${this.idotartam}</div>
             <div><strong>Létszám:</strong> ${this.letszam}</div>

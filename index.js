@@ -1,7 +1,7 @@
-import { UtazasLista } from "./UtazasLista.js";
+import { utazasLista } from "./utazasLista.js";
 import Utazas from "./Utazas.js";
 import Utazasok from "./Utazasok.js";
-import { FoglalasLista } from "./FoglalasLista.js";
+import { foglalasLista } from "./foglalasLista.js";
 import { Foglalasok } from "./Foglalasok.js";
 
 /* VALTOZOK */
@@ -11,7 +11,7 @@ const UTAZASOK = new Utazasok(UTAZASOK_ELEM);
 
 /* foglalas elemek */
 const FOGLALASOK_ELEM = document.querySelector("#foglalasok");
-const FOGLALASOK = new Foglalasok(FoglalasLista, FOGLALASOK_ELEM);
+const FOGLALASOK = new Foglalasok(foglalasLista, FOGLALASOK_ELEM);
 
 /* menupontok, rendezes */
 const MENUPONTOK = document.querySelectorAll(".main-nav a");
@@ -21,7 +21,7 @@ const ARNO = document.querySelector("#ar_no");
 const ARCSOKK = document.querySelector("#ar_csokk");
 
 /* UTAZASOK MEGJELENITESE */
-UtazasLista.forEach(adat => {
+utazasLista.forEach(adat => {
   const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
   UTAZASOK.hozzaad(UTAZAS);
 });
@@ -29,8 +29,8 @@ UTAZASOK.utazasokMegjelenit();
 
 /* eredeti lista sorrendje */
 const EREDETI_UTAZASLISTA = [];
-for (let i = 0; i < UtazasLista.length; i++) {
-  EREDETI_UTAZASLISTA.push(UtazasLista[i]);
+for (let i = 0; i < utazasLista.length; i++) {
+  EREDETI_UTAZASLISTA.push(utazasLista[i]);
 }
 
 /* FOGLALASOK MEGJELENITESE */
@@ -73,18 +73,18 @@ ALAPERTELMEZETT.addEventListener("click", () => {
   UTAZASOK.utazasokMegjelenit();
 });
 ARNO.addEventListener("click", () => {
-  UtazasLista.sort((a, b) => a.ar - b.ar);
+  utazasLista.sort((a, b) => a.ar - b.ar);
   UTAZASOK.utazasLista = [];
-  UtazasLista.forEach(adat => {
+  utazasLista.forEach(adat => {
     const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
     UTAZASOK.hozzaad(UTAZAS);
   });
   UTAZASOK.utazasokMegjelenit();
 });
 ARCSOKK.addEventListener("click", () => {
-  UtazasLista.sort((a, b) => b.ar - a.ar);
+  utazasLista.sort((a, b) => b.ar - a.ar);
   UTAZASOK.utazasLista = [];
-  UtazasLista.forEach(adat => {
+  utazasLista.forEach(adat => {
     const UTAZAS = new Utazas(adat, UTAZASOK_ELEM);
     UTAZASOK.hozzaad(UTAZAS);
   });
