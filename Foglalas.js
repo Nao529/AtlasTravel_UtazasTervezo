@@ -1,28 +1,32 @@
-export class Foglalas{
+export class Foglalas {
     #nev;
     #email;
     #telefon;
     #datum;
     #letszam;
     #utazas;
-    constructor(foglalas,szuloElem){
-        this.#nev=foglalas.nev;
-        this.#email=foglalas.email;
-        this.#telefon=foglalas.telefon;
-        this.#datum=foglalas.datum;
-        this.#letszam=foglalas.letszam;
-        this.#utazas=foglalas.utazas;
-        this.szuloElem=szuloElem
+    #osszeg;
 
-        this.foglalasMegjelenit(szuloElem)
+    constructor(foglalas, szuloElem) {
+        this.#nev = foglalas.nev;
+        this.#email = foglalas.email;
+        this.#telefon = foglalas.telefon;
+        this.#datum = foglalas.datum;
+        this.#letszam = Number(foglalas.letszam);
+        this.#utazas = foglalas.utazas;
+        this.#osszeg = foglalas.osszeg;
+
+        this.szuloElem = szuloElem;
+
+        this.foglalasMegjelenit();
+
         this.foglalasElem =
             this.szuloElem.lastElementChild;
 
         this.foglalasElem
-            .querySelector(".lemond").addEventListener("click", () => {
-
+            .querySelector(".lemond")
+            .addEventListener("click", () => {
                 this.ment();
-
             });
     }
 
@@ -34,8 +38,8 @@ export class Foglalas{
         window.dispatchEvent(esemeny);
     }
 
-    foglalasMegjelenit(){
-        let txt=`
+    foglalasMegjelenit() {
+        let txt = `
             <div class="foglalasKartya">
                 <h2>${this.#nev}</h2>
                 <p><strong>Email:</strong> ${this.#email}</p>
@@ -44,37 +48,42 @@ export class Foglalas{
                 <p><strong>Létszám:</strong> ${this.#letszam} fő</p>
                 <p><strong>Utazás:</strong> ${this.#utazas}</p>
                 <p><strong>Összeg:</strong> ${this.osszegSzamol()} Ft</p>
-                <button class ="lemond">Lemondás</button>
+                <button class="lemond">Lemondás</button>
             </div>
-        `
+        `;
+
         this.szuloElem.insertAdjacentHTML("beforeend", txt);
     }
-    
-    osszegSzamol(){
-        return this.#letszam*10000;
+
+    osszegSzamol() {
+        return this.#letszam * this.#osszeg;
     }
+
     get nev() {
-        return this.#nev
+        return this.#nev;
     }
 
     get email() {
-        return this.#email
+        return this.#email;
     }
 
     get telefon() {
-        return this.#telefon
+        return this.#telefon;
     }
 
     get datum() {
-        return this.#datum
+        return this.#datum;
     }
 
     get letszam() {
-        return this.#letszam
+        return this.#letszam;
     }
 
     get utazas() {
-        return this.#utazas
+        return this.#utazas;
     }
 
+    get osszeg() {
+        return this.#osszeg;
+    }
 }
