@@ -5,6 +5,7 @@ import UtazasReszlet from "./UtazasReszlet.js";
 import { foglalasLista } from "./foglalasLista.js";
 import { Foglalasok } from "./Foglalasok.js";
 import Rendezes from "./Rendezes.js";
+import Kereso from "./Kereso.js";
 
 /* VÁLTOZÓK */
 /* utazás elemek */
@@ -22,6 +23,11 @@ const ALAPERTELMEZETT = document.querySelector("#alap");
 const ARNO = document.querySelector("#ar_no");
 const ARCSOKK = document.querySelector("#ar_csokk");
 const RENDEZO = new Rendezes();
+const KERESO = new Kereso();
+const NEVKERESO = document.querySelector("#nevKereso");
+const LETSZAMKERESO = document.querySelector("#letszamKereso");
+const KERESESGOMB = document.querySelector("#keresesGomb");
+
 
 /* UTAZÁSOK MEGJELENÍTÉSE */
 utazasLista.forEach(adat => {
@@ -92,4 +98,19 @@ function megjelenitUtazasok(lista) {
 window.addEventListener("foglalasLetrehozva", (e) => {
   FOGLALASOK.hozzaad(e.detail);
   FOGLALASOK.megjelenit();
+});
+
+KERESESGOMB.addEventListener("click",()=>{
+
+    let lista = KERESO.nevSzerint(
+        utazasLista,
+        NEVKERESO.value
+    );
+    lista = KERESO.letszamSzerint(
+          lista,
+          LETSZAMKERESO.value
+        );
+
+
+    megjelenitUtazasok(lista);
 });
