@@ -21,6 +21,7 @@ const RENDEZES = document.querySelector(".rendezes");
 const ALAPERTELMEZETT = document.querySelector("#alap");
 const ARNO = document.querySelector("#ar_no");
 const ARCSOKK = document.querySelector("#ar_csokk");
+const RENDEZO = new Rendezes();
 
 /* UTAZÁSOK MEGJELENÍTÉSE */
 utazasLista.forEach(adat => {
