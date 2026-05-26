@@ -66,13 +66,17 @@ MENUPONTOK.forEach(gomb => {
 
 /* RENDEZÉS */
 ALAPERTELMEZETT.addEventListener("click", () => {
-  megjelenitUtazasok(Rendezes.alapertelmezett(EREDETI_UTAZASLISTA));
+  megjelenitUtazasok(RENDEZO.alapertelmezett(EREDETI_UTAZASLISTA));
 });
+
 ARNO.addEventListener("click", () => {
-  megjelenitUtazasok(Rendezes.arNovekvo(utazasLista));
+  megjelenitUtazasok(RENDEZO.arNovekvo(utazasLista)
+  );
 });
+
 ARCSOKK.addEventListener("click", () => {
-  megjelenitUtazasok(Rendezes.arCsokkeno(utazasLista));
+  megjelenitUtazasok(RENDEZO.arCsokkeno(utazasLista)
+  );
 });
 
 /* SEGÉDFÜGGVÉNY */
