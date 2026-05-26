@@ -45,7 +45,6 @@ MENUPONTOK.forEach(elem => {
     elem.classList.remove("active");
   }
 });
-
 MENUPONTOK.forEach(gomb => {
   gomb.addEventListener("click", event => {
     event.preventDefault();
