@@ -1,5 +1,7 @@
+import UtazasReszlet from "./UtazasReszlet.js";
+
 export default class Utazas {
-  constructor(adatok, szuloElem) {
+  constructor(adatok, szuloElem, reszletKezelo) {
     this.nev = adatok.nev;
     this.orszag = adatok.orszag;
     this.kep = adatok.kep;
@@ -8,8 +10,10 @@ export default class Utazas {
     this.ar = adatok.ar;
     this.idotartam = adatok.idotartam;
     this.letszam = adatok.letszam;
+
     this.szuloElem = szuloElem;
     this.kartyaElem = document.createElement("div");
+    this.reszletKezelo = reszletKezelo;
   }
 
   /* UTAZÁS KÁRTYA */
@@ -26,48 +30,15 @@ export default class Utazas {
         </div>
         <div class="kartya-ar">Már ${this.ar} Ft-tól</div>
         <button class="reszletek-gomb">Részletek</button>
-      </div>`;
+      </div>
+    `;
+
     this.kartyaElem
       .querySelector(".reszletek-gomb")
-      .addEventListener("click", () => this.reszletekMegjelenit());
-    this.szuloElem.appendChild(this.kartyaElem);
-  }
+      .addEventListener("click", () => {
+        this.reszletKezelo.megjelenit(this);
+      });
 
-  /* RÉSZLETEK – NAGY KÁRTYA */
-  reszletekMegjelenit() {
-    const overlay = document.querySelector("#overlay");
-    const modal = document.querySelector("#modal");
-    const cim = document.querySelector("#modal-cim");
-    const leiras = document.querySelector("#modal-leiras");
-    cim.textContent = `${this.nev} - ${this.orszag}`;
-    leiras.innerHTML = `
-      <div class="modal-kartya">
-        <div class="modal-felso">
-          <img src="${this.kep}" alt="${this.nev}" class="modal-kep">
-          <div class="modal-szoveg">
-            <p class="modal-rovid">${this.leiras}</p>
-            <p class="modal-hosszu">${this.hosszuLeiras}</p>
-          </div>
-        </div>
-        <div class="modal-also">
-          <div class="modal-adatok">
-            <div><strong>Időtartam:</strong> ${this.idotartam}</div>
-            <div><strong>Létszám:</strong> ${this.letszam}</div>
-            <div><strong>Ár:</strong> ${this.ar} Ft</div>
-          </div>
-          <button class="modal-foglalas">Foglalás</button>
-        </div>
-      </div>`;
-    overlay.style.display = "block";
-    modal.style.display = "block";
-    document.querySelector("#modal-close").onclick = () => this.reszletekElrejt();
-    overlay.onclick = () => this.reszletekElrejt();
-    leiras.querySelector(".modal-foglalas").onclick = () => {
-      console.log("Foglalás indítása:", this.nev);
-    };
-  }
-  reszletekElrejt() {
-    document.querySelector("#overlay").style.display = "none";
-    document.querySelector("#modal").style.display = "none";
+    this.szuloElem.appendChild(this.kartyaElem);
   }
 }
