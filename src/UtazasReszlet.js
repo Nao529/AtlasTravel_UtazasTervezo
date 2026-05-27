@@ -5,21 +5,14 @@ export default class UtazasReszlet {
         this.cim = document.querySelector("#modal-cim");
         this.tartalom = document.querySelector("#modal-leiras");
         this.bezarGomb = document.querySelector("#modal-close");
-
         this.bezarGomb.addEventListener("click", () => this.elrejt());
         this.overlay.addEventListener("click", () => this.elrejt());
     }
 
-    /**
-     * Részletek megjelenítése egy adott utazás alapján
-     * @param {Object} utazas
-     */
     megjelenit(utazas) {
         this.cim.textContent = `${utazas.nev} - ${utazas.orszag}`;
-
         this.tartalom.innerHTML = `
       <div class="modal-kartya">
-
         <div class="modal-felso">
           <img src="${utazas.kep}" alt="${utazas.nev}" class="modal-kep">
           <div class="modal-szoveg">
@@ -27,7 +20,6 @@ export default class UtazasReszlet {
             <p class="modal-hosszu">${utazas.hosszuLeiras}</p>
           </div>
         </div>
-
         <div class="modal-also">
           <div class="modal-adatok">
             <div><strong>Időtartam:</strong> ${utazas.idotartam}</div>
@@ -37,10 +29,8 @@ export default class UtazasReszlet {
           <button class="modal-foglalas">Foglalás</button>
         </div>
       </div>`;
-
         this.overlay.style.display = "block";
         this.modal.style.display = "block";
-
         this.tartalom
             .querySelector(".modal-foglalas")
             .addEventListener("click", () => {
@@ -121,12 +111,11 @@ export default class UtazasReszlet {
                 osszeg: utazas.ar
             };
             window.dispatchEvent(
-            new CustomEvent("foglalasLetrehozva", {
-                detail: foglalasAdat
-            })
-);
+                new CustomEvent("foglalasLetrehozva", {
+                    detail: foglalasAdat
+                })
+            );
             this.elrejt();
         });
-        }
-
+    }
 }

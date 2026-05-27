@@ -1,5 +1,4 @@
 import UtazasReszlet from "./UtazasReszlet.js";
-
 export default class Utazas {
   constructor(adatok, szuloElem, reszletKezelo) {
     this.nev = adatok.nev;
@@ -10,7 +9,6 @@ export default class Utazas {
     this.ar = adatok.ar;
     this.idotartam = adatok.idotartam;
     this.letszam = adatok.letszam;
-
     this.szuloElem = szuloElem;
     this.kartyaElem = document.createElement("div");
     this.reszletKezelo = reszletKezelo;
@@ -30,15 +28,12 @@ export default class Utazas {
         </div>
         <div class="kartya-ar">Már ${this.ar} Ft-tól</div>
         <button class="reszletek-gomb">Részletek</button>
-      </div>
-    `;
-
+      </div>`;
     this.kartyaElem
       .querySelector(".reszletek-gomb")
       .addEventListener("click", () => {
         this.reszletKezelo.megjelenit(this);
       });
-
     this.szuloElem.appendChild(this.kartyaElem);
   }
 }

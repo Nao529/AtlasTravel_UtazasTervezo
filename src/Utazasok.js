@@ -7,6 +7,7 @@ export default class Utazasok {
   hozzaad(utazas) {
     this.utazasLista.push(utazas);
   }
+  
   utazasokMegjelenit() {
     this.szuloElem.innerHTML = "";
     this.utazasLista.forEach(utazas => {

@@ -74,12 +74,10 @@ MENUPONTOK.forEach(gomb => {
 ALAPERTELMEZETT.addEventListener("click", () => {
   megjelenitUtazasok(RENDEZO.alapertelmezett(EREDETI_UTAZASLISTA));
 });
-
 ARNO.addEventListener("click", () => {
   megjelenitUtazasok(RENDEZO.arNovekvo(utazasLista)
   );
 });
-
 ARCSOKK.addEventListener("click", () => {
   megjelenitUtazasok(RENDEZO.arCsokkeno(utazasLista)
   );
@@ -94,14 +92,11 @@ function megjelenitUtazasok(lista) {
   });
   UTAZASOK.utazasokMegjelenit();
 }
-
 window.addEventListener("foglalasLetrehozva", (e) => {
   FOGLALASOK.hozzaad(e.detail);
   FOGLALASOK.megjelenit();
 });
-
 KERESESGOMB.addEventListener("click",()=>{
-
     let lista = KERESO.nevSzerint(
         utazasLista,
         NEVKERESO.value
@@ -110,7 +105,5 @@ KERESESGOMB.addEventListener("click",()=>{
           lista,
           LETSZAMKERESO.value
         );
-
-
     megjelenitUtazasok(lista);
 });

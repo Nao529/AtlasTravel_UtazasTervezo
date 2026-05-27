@@ -6,7 +6,6 @@ export class Foglalas {
     #letszam;
     #utazas;
     #osszeg;
-
     constructor(foglalas, szuloElem) {
         this.#nev = foglalas.nev;
         this.#email = foglalas.email;
@@ -15,14 +14,9 @@ export class Foglalas {
         this.#letszam = Number(foglalas.letszam);
         this.#utazas = foglalas.utazas;
         this.#osszeg = foglalas.osszeg;
-
         this.szuloElem = szuloElem;
-
         this.foglalasMegjelenit();
-
-        this.foglalasElem =
-            this.szuloElem.lastElementChild;
-
+        this.foglalasElem = this.szuloElem.lastElementChild;
         this.foglalasElem
             .querySelector(".lemond")
             .addEventListener("click", () => {
@@ -34,7 +28,6 @@ export class Foglalas {
         const esemeny = new CustomEvent("lemond", {
             detail: this
         });
-
         window.dispatchEvent(esemeny);
     }
 
@@ -49,9 +42,7 @@ export class Foglalas {
                 <p><strong>Utazás:</strong> ${this.#utazas}</p>
                 <p><strong>Összeg:</strong> ${this.osszegSzamol()} Ft</p>
                 <button class="lemond">Lemondás</button>
-            </div>
-        `;
-
+            </div>`;
         this.szuloElem.insertAdjacentHTML("beforeend", txt);
     }
 
@@ -62,27 +53,21 @@ export class Foglalas {
     get nev() {
         return this.#nev;
     }
-
     get email() {
         return this.#email;
     }
-
     get telefon() {
         return this.#telefon;
     }
-
     get datum() {
         return this.#datum;
     }
-
     get letszam() {
         return this.#letszam;
     }
-
     get utazas() {
         return this.#utazas;
     }
-
     get osszeg() {
         return this.#osszeg;
     }
