@@ -94,7 +94,7 @@ function megjelenitUtazasok(lista) {
 }
 window.addEventListener("foglalasLetrehozva", (e) => {
   FOGLALASOK.hozzaad(e.detail);
-  FOGLALASOK.megjelenit();
+  FOGLALASOK.foglalasokMegjelenit();
 });
 KERESESGOMB.addEventListener("click",()=>{
     let lista = KERESO.nevSzerint(
