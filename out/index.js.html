@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>index.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Foglalas.html">Foglalas</a><ul class='methods'><li data-type='method'><a href="Foglalas.html#foglalasMegjelenit">foglalasMegjelenit</a></li><li data-type='method'><a href="Foglalas.html#ment">ment</a></li><li data-type='method'><a href="Foglalas.html#osszegSzamol">osszegSzamol</a></li></ul></li><li><a href="Foglalas_Foglalas.html">Foglalas</a></li><li><a href="Foglalasok.html">Foglalasok</a><ul class='methods'><li data-type='method'><a href="Foglalasok.html#foglalasokMegjelenit">foglalasokMegjelenit</a></li><li data-type='method'><a href="Foglalasok.html#hozzaad">hozzaad</a></li><li data-type='method'><a href="Foglalasok.html#lemond">lemond</a></li></ul></li><li><a href="Foglalasok_Foglalasok.html">Foglalasok</a></li><li><a href="Kereso.html">Kereso</a></li><li><a href="Rendezes.html">Rendezes</a></li><li><a href="Utazas.html">Utazas</a></li><li><a href="UtazasReszlet.html">UtazasReszlet</a></li><li><a href="Utazasok.html">Utazasok</a></li><li><a href="module.exports_module.exports.html">exports</a></li><li></li><li></li></ul><h3>Global</h3><ul><li><a href="global.html#FOGLALASOK">FOGLALASOK</a></li><li><a href="global.html#KERESO">KERESO</a></li><li><a href="global.html#RENDEZO">RENDEZO</a></li><li><a href="global.html#UTAZASOK">UTAZASOK</a></li><li><a href="global.html#UTAZAS_RESZLET">UTAZAS_RESZLET</a></li><li><a href="global.html#alapertelmezett">alapertelmezett</a></li><li><a href="global.html#arCsokkeno">arCsokkeno</a></li><li><a href="global.html#arNovekvo">arNovekvo</a></li><li><a href="global.html#elrejt">elrejt</a></li><li><a href="global.html#foglalasLista">foglalasLista</a></li><li><a href="global.html#formEsemeny">formEsemeny</a></li><li><a href="global.html#hozzaad">hozzaad</a></li><li><a href="global.html#letszamSzerint">letszamSzerint</a></li><li><a href="global.html#megjelenit">megjelenit</a></li><li><a href="global.html#megjelenitForm">megjelenitForm</a></li><li><a href="global.html#megjelenitUtazasok">megjelenitUtazasok</a></li><li><a href="global.html#nevSzerint">nevSzerint</a></li><li><a href="global.html#utazasLista">utazasLista</a></li><li><a href="global.html#utazasMegjelenit">utazasMegjelenit</a></li><li><a href="global.html#utazasokMegjelenit">utazasokMegjelenit</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Az alkalmazás belépési pontja.
+ * Kezeli az utazások és foglalások megjelenítését,
+ * a navigációt, a rendezést és a keresést.
+ */
+import { utazasLista } from "./utazasLista.js";
+import Utazas from "./Utazas.js";
+import Utazasok from "./Utazasok.js";
+import UtazasReszlet from "./UtazasReszlet.js";
+import { foglalasLista } from "./foglalasLista.js";
+import { Foglalasok } from "./Foglalasok.js";
+import Rendezes from "./Rendezes.js";
+import Kereso from "./Kereso.js";
+
+/* VÁLTOZÓK */
+/* utazás elemek */
+const UTAZASOK_ELEM = document.querySelector("#utazasok");
+/**
+ * Az utazások gyűjteményét kezelő objektum.
+ * @type {Utazasok}
+ */
+const UTAZASOK = new Utazasok(UTAZASOK_ELEM);
+/* részletek (modal) kezelő – EGYSZER */
+/**
+ * A modális ablak kezeléséért felelős objektum.
+ * @type {UtazasReszlet}
+ */
+const UTAZAS_RESZLET = new UtazasReszlet();
+/* foglalás elemek */
+const FOGLALASOK_ELEM = document.querySelector("#foglalasok");
+/**
+ * A foglalások kezeléséért felelős objektum.
+ * @type {Foglalasok}
+ */
+const FOGLALASOK = new Foglalasok(foglalasLista, FOGLALASOK_ELEM);
+/* menüpontok, rendezés */
+const MENUPONTOK = document.querySelectorAll(".main-nav a");
+const RENDEZES = document.querySelector(".rendezes");
+const ALAPERTELMEZETT = document.querySelector("#alap");
+const ARNO = document.querySelector("#ar_no");
+const ARCSOKK = document.querySelector("#ar_csokk");
+/**
+ * Az utazások rendezését végző objektum.
+ * @type {Rendezes}
+ */
+const RENDEZO = new Rendezes();
+/**
+ * Az utazások keresését végző objektum.
+ * @type {Kereso}
+ */
+const KERESO = new Kereso();
+const NEVKERESO = document.querySelector("#nevKereso");
+const LETSZAMKERESO = document.querySelector("#letszamKereso");
+const KERESESGOMB = document.querySelector("#keresesGomb");
+
+
+/* UTAZÁSOK MEGJELENÍTÉSE */
+utazasLista.forEach(adat => {
+  const UTAZAS = new Utazas(adat, UTAZASOK_ELEM, UTAZAS_RESZLET);
+  UTAZASOK.hozzaad(UTAZAS);
+});
+UTAZASOK.utazasokMegjelenit();
+megjelenitUtazasok(utazasLista);
+/* eredeti lista sorrendje */
+const EREDETI_UTAZASLISTA = [];
+for (let i = 0; i &lt; utazasLista.length; i++) {
+  EREDETI_UTAZASLISTA.push(utazasLista[i]);
+}
+
+/* FOGLALÁSOK / MENÜ KEZELÉS */
+FOGLALASOK_ELEM.style.display = "none";
+MENUPONTOK.forEach(elem => {
+  if (elem.textContent === "Utazások") {
+    elem.classList.add("active");
+  } else {
+    elem.classList.remove("active");
+  }
+});
+MENUPONTOK.forEach(gomb => {
+  gomb.addEventListener("click", event => {
+    event.preventDefault();
+    MENUPONTOK.forEach(elem => elem.classList.remove("active"));
+    event.target.classList.add("active");
+    const szoveg = event.target.textContent;
+    if (szoveg === "Foglalásaim") {
+      UTAZASOK_ELEM.style.display = "none";
+      FOGLALASOK_ELEM.style.display = "grid";
+      RENDEZES.style.display = "none";
+    }
+    if (szoveg === "Utazások") {
+      UTAZASOK_ELEM.style.display = "grid";
+      FOGLALASOK_ELEM.style.display = "none";
+      RENDEZES.style.display = "flex";
+    }
+  });
+});
+
+/* RENDEZÉS */
+ALAPERTELMEZETT.addEventListener("click", () => {
+  megjelenitUtazasok(RENDEZO.alapertelmezett(EREDETI_UTAZASLISTA));
+});
+ARNO.addEventListener("click", () => {
+  megjelenitUtazasok(RENDEZO.arNovekvo(utazasLista)
+  );
+});
+ARCSOKK.addEventListener("click", () => {
+  megjelenitUtazasok(RENDEZO.arCsokkeno(utazasLista)
+  );
+});
+
+/* SEGÉDFÜGGVÉNY */
+/**
+ * Megjeleníti a paraméterként kapott utazáslistát.
+ *
+ * @param {Array&lt;Object>} lista - A megjelenítendő utazások listája.
+ */
+function megjelenitUtazasok(lista) {
+  UTAZASOK.utazasLista = [];
+  lista.forEach(adat => {
+    const UTAZAS = new Utazas(adat, UTAZASOK_ELEM, UTAZAS_RESZLET);
+    UTAZASOK.hozzaad(UTAZAS);
+  });
+  UTAZASOK.utazasokMegjelenit();
+}
+window.addEventListener("foglalasLetrehozva", (e) => {
+  FOGLALASOK.hozzaad(e.detail);
+  FOGLALASOK.foglalasokMegjelenit();
+});
+KERESESGOMB.addEventListener("click",()=>{
+    let lista = KERESO.nevSzerint(
+        utazasLista,
+        NEVKERESO.value
+    );
+    lista = KERESO.letszamSzerint(
+          lista,
+          LETSZAMKERESO.value
+        );
+    megjelenitUtazasok(lista);
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Sat May 30 2026 18:14:37 GMT+0200 (közép-európai nyári idő) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

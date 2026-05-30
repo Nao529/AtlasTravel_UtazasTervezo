@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Foglalas.html">Foglalas</a><ul class='methods'><li data-type='method'><a href="Foglalas.html#foglalasMegjelenit">foglalasMegjelenit</a></li><li data-type='method'><a href="Foglalas.html#ment">ment</a></li><li data-type='method'><a href="Foglalas.html#osszegSzamol">osszegSzamol</a></li></ul></li><li><a href="Foglalas_Foglalas.html">Foglalas</a></li><li><a href="Foglalasok.html">Foglalasok</a><ul class='methods'><li data-type='method'><a href="Foglalasok.html#foglalasokMegjelenit">foglalasokMegjelenit</a></li><li data-type='method'><a href="Foglalasok.html#hozzaad">hozzaad</a></li><li data-type='method'><a href="Foglalasok.html#lemond">lemond</a></li></ul></li><li><a href="Foglalasok_Foglalasok.html">Foglalasok</a></li><li><a href="Kereso.html">Kereso</a></li><li><a href="Rendezes.html">Rendezes</a></li><li><a href="Utazas.html">Utazas</a></li><li><a href="UtazasReszlet.html">UtazasReszlet</a></li><li><a href="Utazasok.html">Utazasok</a></li><li><a href="module.exports_module.exports.html">exports</a></li><li></li><li></li></ul><h3>Global</h3><ul><li><a href="global.html#FOGLALASOK">FOGLALASOK</a></li><li><a href="global.html#KERESO">KERESO</a></li><li><a href="global.html#RENDEZO">RENDEZO</a></li><li><a href="global.html#UTAZASOK">UTAZASOK</a></li><li><a href="global.html#UTAZAS_RESZLET">UTAZAS_RESZLET</a></li><li><a href="global.html#alapertelmezett">alapertelmezett</a></li><li><a href="global.html#arCsokkeno">arCsokkeno</a></li><li><a href="global.html#arNovekvo">arNovekvo</a></li><li><a href="global.html#elrejt">elrejt</a></li><li><a href="global.html#foglalasLista">foglalasLista</a></li><li><a href="global.html#formEsemeny">formEsemeny</a></li><li><a href="global.html#hozzaad">hozzaad</a></li><li><a href="global.html#letszamSzerint">letszamSzerint</a></li><li><a href="global.html#megjelenit">megjelenit</a></li><li><a href="global.html#megjelenitForm">megjelenitForm</a></li><li><a href="global.html#megjelenitUtazasok">megjelenitUtazasok</a></li><li><a href="global.html#nevSzerint">nevSzerint</a></li><li><a href="global.html#utazasLista">utazasLista</a></li><li><a href="global.html#utazasMegjelenit">utazasMegjelenit</a></li><li><a href="global.html#utazasokMegjelenit">utazasokMegjelenit</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme usertext">
+        <article><h1>AtlasTravel</h1>
+<h1>Utazástervező Webalkalmazás – Részletes Specifikáció</h1>
+<h1>Projekt célja</h1>
+<p>Egy modern, JavaScript alapú utazástervező webalkalmazás készítése, ahol a felhasználó:</p>
+<ul>
+<li>utazások között böngészhet</li>
+<li>szűrhet és kereshet</li>
+<li>részleteket tekinthet meg</li>
+<li>foglalást készíthet</li>
+<li>megtekintheti saját foglalásait</li>
+</ul>
+<p>Az alkalmazás Single Page Application (SPA) jelleggel működik, ahol az oldalak dinamikusan jelennek meg JavaScript segítségével.</p>
+<hr>
+<h3>UML ábra:</h3>
+<img width="1124" height="806" alt="atlas_travel_uml" src="https://github.com/user-attachments/assets/7b2831a8-5e96-4061-b7eb-6ee4263a65be" />
+<hr>
+<h1>Technológiák</h1>
+<h2>Frontend</h2>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript (ES6)</li>
+</ul>
+<h2>Adattárolás</h2>
+<ul>
+<li>JSON</li>
+<li>localStorage (opcionális)</li>
+</ul>
+<hr>
+<h1>Oldalszerkezet</h1>
+<h2>Header</h2>
+<p>Tartalmazza:</p>
+<ul>
+<li>logó</li>
+<li>navigációs menü</li>
+</ul>
+<h3>Menüelemek</h3>
+<ul>
+<li>Kezdőlap</li>
+<li>Utazások</li>
+<li>Foglalásaim</li>
+<li>Kapcsolat</li>
+</ul>
+<hr>
+<h1>Főoldal</h1>
+<h2>Kereső és szűrő rész</h2>
+<p>A felhasználó kereshet:</p>
+<ul>
+<li>úticél szerint</li>
+<li>dátum szerint</li>
+<li>létszám szerint</li>
+</ul>
+<p>A keresést egy gomb indítja.</p>
+<hr>
+<h2>Rendezési lehetőségek</h2>
+<p>A találatok rendezhetők:</p>
+<ul>
+<li>ABC sorrend</li>
+<li>ár szerint növekvő</li>
+<li>ár szerint csökkenő</li>
+<li>időtartam szerint</li>
+</ul>
+<hr>
+<h1>Utazás kártyák</h1>
+<p>Az utazások kártyák formájában jelennek meg.</p>
+<h2>Egy kártya tartalma</h2>
+<ul>
+<li>kép</li>
+<li>úticél neve</li>
+<li>ország</li>
+<li>rövid leírás</li>
+<li>időtartam</li>
+<li>ár</li>
+<li>maximális létszám</li>
+<li>részletek gomb</li>
+</ul>
+<hr>
+<h1>Részletek megjelenítése</h1>
+<p>A „Részletek” gombra kattintva:</p>
+<ul>
+<li>felugró ablak/modal jelenik meg</li>
+<li>részletes leírással</li>
+<li>nagyobb képpel</li>
+<li>foglalás lehetőséggel</li>
+</ul>
+<hr>
+<h1>Foglalás</h1>
+<p>A felhasználó:</p>
+<ul>
+<li>nevet ad meg</li>
+<li>email címet ad meg</li>
+<li>telefonszámot ad meg</li>
+<li>kiválasztja a létszámot
+Foglalás után:</li>
+<li>a foglalás bekerül a „Foglalásaim” részbe</li>
+</ul>
+<hr>
+<h1>Foglalásaim oldal/rész</h1>
+<p>Megjeleníti:</p>
+<ul>
+<li>lefoglalt utazásokat</li>
+<li>foglalási adatokat</li>
+<li>összegzést
+Lehetőség van:</li>
+<li>foglalás törlésére</li>
+</ul>
+<hr>
+<h1>UML Osztályok Specifikációja</h1>
+<h1>1. index.js</h1>
+<h2>Feladata</h2>
+<p>A program fő vezérlője.
+Kapcsolatot tart:</p>
+<ul>
+<li>az utazásokkal</li>
+<li>a foglalásokkal</li>
+<li>az aktuális kiválasztott utazással</li>
+</ul>
+<h2>Adattagok</h2>
+<p>utazasok : Utazasok
+foglalasok : Foglalasok
+aktualisUtazas : Utazas</p>
+<h2>Metódusok</h2>
+<h3>init()</h3>
+<p>Az alkalmazás indítása.
+Feladata:</p>
+<ul>
+<li>osztályok példányosítása</li>
+<li>adatok betöltése</li>
+<li>eseménykezelők indítása</li>
+</ul>
+<hr>
+<h3>oldalValtas(oldal)</h3>
+<p>Oldalak közötti navigáció kezelése.</p>
+<hr>
+<h3>foglalasInditasa()</h3>
+<p>Foglalási folyamat elindítása.</p>
+<hr>
+<h3>esemenyKezeles()</h3>
+<p>Globális eseménykezelések.
+Például:</p>
+<ul>
+<li>navbar kattintások</li>
+<li>keresés</li>
+<li>rendezés</li>
+</ul>
+<hr>
+<h1>2. Utazasok</h1>
+<h2>Feladata</h2>
+<p>Az összes utazás kezelése.
+Tárolja:</p>
+<ul>
+<li>az utazás objektumokat</li>
+<li>megjeleníti a kártyákat</li>
+</ul>
+<h2>Adattagok</h2>
+<p>utazasLista : array
+szuloElem : HTMLElement</p>
+<h2>Metódusok</h2>
+<h3>utazasokMegjelenit()</h3>
+<p>Összes utazás renderelése.
+Működés:</p>
+<ul>
+<li>végigiterál a listán</li>
+<li>minden elemhez létrehoz egy Utazas objektumot</li>
+</ul>
+<hr>
+<h1>3. Utazas</h1>
+<h2>Feladata</h2>
+<p>Egyetlen utazás kezelése.</p>
+<h2>Adattagok</h2>
+<p>nev : String
+orszag : String
+kep : String
+leiras : String
+ar : int
+idotartam : String
+letszam : String
+szuloElem : HTMLElement
+kartyaElem : HTMLElement</p>
+<h2>Metódusok</h2>
+<h3>utazasMegjelenit()</h3>
+<p>Kártya létrehozása és megjelenítése.</p>
+<hr>
+<h3>reszletekMegnyitasa()</h3>
+<p>Részletes popup/modal megnyitása.</p>
+<hr>
+<h3>esemenyek()</h3>
+<p>Kártyához tartozó eseménykezelések.
+Például:</p>
+<ul>
+<li>részletek gomb</li>
+<li>kedvencek ikon</li>
+</ul>
+<hr>
+<h1>4. Foglalasok</h1>
+<h2>Feladata</h2>
+<p>Az összes foglalás kezelése.</p>
+<h2>Adattagok</h2>
+<p>foglalasLista : array
+szuloElem : HTMLElement</p>
+<h2>Metódusok</h2>
+<h3>foglalasokMegjelenit()</h3>
+<p>Foglalások renderelése.</p>
+<h3>foglal()</h3>
+<p>Új foglalás létrehozása.</p>
+<h3>lemond()</h3>
+<p>Foglalás törlése.</p>
+<h3>foglalasHozzaad(foglalas)</h3>
+<p>Új foglalás hozzáadása a listához.</p>
+<hr>
+<h1>5. Foglalas</h1>
+<h2>Feladata</h2>
+<p>Egyetlen foglalás adatainak kezelése.</p>
+<h2>Adattagok</h2>
+<p>nev : String
+email : String
+telefon : String
+datum : String
+letszam : int
+utazas : Utazas
+szuloElem : HTMLElement
+foglalasElem : HTMLElement</p>
+<h2>Metódusok</h2>
+<h3>ment()</h3>
+<p>Foglalás mentése.</p>
+<h3>foglalasMegjelenit()</h3>
+<p>Foglalási adatok megjelenítése.</p>
+<h3>osszegSzamol()</h3>
+<p>Végösszeg kiszámítása.
+Számítás:</p>
+<ul>
+<li>utazás ára × létszám</li>
+</ul>
+<h1>Eseménykezelések</h1>
+<h2>Keresés gomb</h2>
+<ul>
+<li>szűrés indítása</li>
+</ul>
+<h2>Rendezés select</h2>
+<ul>
+<li>lista újrarendezése</li>
+</ul>
+<h2>Részletek gomb</h2>
+<ul>
+<li>modal megnyitása</li>
+</ul>
+<h2>Foglalás gomb</h2>
+<ul>
+<li>foglalás létrehozása</li>
+</ul>
+<h2>Lemondás gomb</h2>
+<ul>
+<li>foglalás törlése</li>
+</ul>
+<h1>Adatfolyamat</h1>
+<p>JSON adatok
+↓
+Utazasok
+↓
+Utazas objektumok
+↓
+Megjelenítés
+↓
+Foglalás
+↓
+Foglalas objektum
+↓
+Foglalasok lista</p></article>
+    </section>
+
+
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on Sat May 30 2026 18:14:37 GMT+0200 (közép-európai nyári idő) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
