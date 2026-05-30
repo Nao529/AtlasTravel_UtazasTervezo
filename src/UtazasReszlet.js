@@ -1,4 +1,13 @@
+/**
+ * @class UtazasReszlet
+ * @classdesc Az utazások részletes adatainak és a foglalási űrlapnak a modális ablakban történő megjelenítéséért felelős osztály.
+ */
 export default class UtazasReszlet {
+
+    /**
+     * Létrehoz egy új UtazasReszlet példányt,
+     * beállítja a szükséges DOM elemeket és az eseménykezelőket.
+     */
     constructor() {
         this.overlay = document.querySelector("#overlay");
         this.modal = document.querySelector("#modal");
@@ -9,6 +18,12 @@ export default class UtazasReszlet {
         this.overlay.addEventListener("click", () => this.elrejt());
     }
 
+    /**
+     * Megjeleníti a kiválasztott utazás részletes adatait
+     * a modális ablakban.
+     *
+     * @param {Utazas} utazas - A megjelenítendő utazás objektum.
+     */
     megjelenit(utazas) {
         this.cim.textContent = `${utazas.nev} - ${utazas.orszag}`;
         this.tartalom.innerHTML = `
@@ -39,11 +54,19 @@ export default class UtazasReszlet {
             });
     }
 
+    /**
+     * Elrejti a modális ablakot és a háttérfedő réteget.
+     */
     elrejt() {
         this.overlay.style.display = "none";
         this.modal.style.display = "none";
     }
 
+    /**
+     * Megjeleníti a foglalási űrlapot a kiválasztott utazáshoz.
+     *
+     * @param {Utazas} utazas - A lefoglalni kívánt utazás objektum.
+     */
     megjelenitForm(utazas) {
         this.tartalom.innerHTML = `
         <form id="foglalasForm" class="foglalas-form">
@@ -74,33 +97,45 @@ export default class UtazasReszlet {
         this.formEsemeny(utazas);
     }
 
+    /**
+     * Kezeli a foglalási űrlap eseményeit,
+     * elvégzi az adatok ellenőrzését és létrehozza a foglalást.
+     *
+     * @param {Utazas} utazas - A lefoglalandó utazás objektum.
+     */
     formEsemeny(utazas) {
         const form = document.querySelector("#foglalasForm");
         const hibaUzenet = form.querySelector(".hiba-uzenet");
+
         form.addEventListener("submit", (event) => {
             event.preventDefault();
+
             const nev = form.querySelector("input[name='nev']").value.trim();
             const email = form.querySelector("input[name='email']").value.trim();
             const telefon = form.querySelector("input[name='telefon']").value.trim();
             const datum = form.querySelector("input[name='datum']").value;
             const letszam = form.querySelector("input[name='letszam']").value;
             const adatvedelem = form.querySelector("input[name='adatvedelem']").checked;
+
             if (
-            nev === "" ||
-            email === "" ||
-            telefon === "" ||
-            datum === "" ||
-            letszam === ""
+                nev === "" ||
+                email === "" ||
+                telefon === "" ||
+                datum === "" ||
+                letszam === ""
             ) {
-            hibaUzenet.textContent = "Minden mező kitöltése kötelező!";
-            return;
+                hibaUzenet.textContent = "Minden mező kitöltése kötelező!";
+                return;
             }
+
             if (!adatvedelem) {
-            hibaUzenet.textContent =
-                "Az adatvédelmi tájékoztató elfogadása kötelező!";
-            return;
+                hibaUzenet.textContent =
+                    "Az adatvédelmi tájékoztató elfogadása kötelező!";
+                return;
             }
+
             hibaUzenet.textContent = "";
+
             const foglalasAdat = {
                 nev: nev,
                 email: email,
@@ -110,11 +145,13 @@ export default class UtazasReszlet {
                 utazas: utazas.nev,
                 osszeg: utazas.ar
             };
+
             window.dispatchEvent(
                 new CustomEvent("foglalasLetrehozva", {
                     detail: foglalasAdat
                 })
             );
+
             this.elrejt();
         });
     }

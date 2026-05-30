@@ -1,11 +1,57 @@
+/**
+ * @class Foglalas
+ * @classdesc Egy foglalás adatainak tárolásáért, megjelenítéséért és lemondásának kezeléséért felelős osztály.
+ */
 export class Foglalas {
+
+    /**
+     * @private
+     * @type {string}
+     */
     #nev;
+
+    /**
+     * @private
+     * @type {string}
+     */
     #email;
+
+    /**
+     * @private
+     * @type {string}
+     */
     #telefon;
+
+    /**
+     * @private
+     * @type {string}
+     */
     #datum;
+
+    /**
+     * @private
+     * @type {number}
+     */
     #letszam;
+
+    /**
+     * @private
+     * @type {string}
+     */
     #utazas;
+
+    /**
+     * @private
+     * @type {number}
+     */
     #osszeg;
+
+    /**
+     * Létrehoz egy új Foglalas példányt és megjeleníti azt.
+     *
+     * @param {Object} foglalas - A foglalás adatait tartalmazó objektum.
+     * @param {HTMLElement} szuloElem - A szülő DOM elem, ahová a foglalás kerül.
+     */
     constructor(foglalas, szuloElem) {
         this.#nev = foglalas.nev;
         this.#email = foglalas.email;
@@ -24,6 +70,9 @@ export class Foglalas {
             });
     }
 
+    /**
+     * Egyedi "lemond" eseményt küld az aktuális foglalással.
+     */
     ment() {
         const esemeny = new CustomEvent("lemond", {
             detail: this
@@ -31,6 +80,9 @@ export class Foglalas {
         window.dispatchEvent(esemeny);
     }
 
+    /**
+     * Megjeleníti a foglalás adatait egy kártyán.
+     */
     foglalasMegjelenit() {
         let txt = `
             <div class="foglalasKartya">
@@ -46,28 +98,60 @@ export class Foglalas {
         this.szuloElem.insertAdjacentHTML("beforeend", txt);
     }
 
+    /**
+     * Kiszámolja a foglalás teljes összegét.
+     *
+     * @returns {number} A teljes fizetendő összeg.
+     */
     osszegSzamol() {
         return this.#letszam * this.#osszeg;
     }
 
+    /**
+     * @returns {string} A foglaló neve.
+     */
     get nev() {
         return this.#nev;
     }
+
+    /**
+     * @returns {string} A foglaló email címe.
+     */
     get email() {
         return this.#email;
     }
+
+    /**
+     * @returns {string} A foglaló telefonszáma.
+     */
     get telefon() {
         return this.#telefon;
     }
+
+    /**
+     * @returns {string} A foglalás dátuma.
+     */
     get datum() {
         return this.#datum;
     }
+
+    /**
+     * @returns {number} A foglalás létszáma.
+     */
     get letszam() {
         return this.#letszam;
     }
+
+    /**
+     * @returns {string} A lefoglalt utazás neve.
+     */
     get utazas() {
         return this.#utazas;
     }
+
+    /**
+     * @returns {number} Az utazás egy főre vonatkozó ára.
+     */
     get osszeg() {
         return this.#osszeg;
     }

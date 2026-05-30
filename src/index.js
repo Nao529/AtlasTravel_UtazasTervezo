@@ -1,3 +1,8 @@
+/**
+ * Az alkalmazás belépési pontja.
+ * Kezeli az utazások és foglalások megjelenítését,
+ * a navigációt, a rendezést és a keresést.
+ */
 import { utazasLista } from "./utazasLista.js";
 import Utazas from "./Utazas.js";
 import Utazasok from "./Utazasok.js";
@@ -10,11 +15,23 @@ import Kereso from "./Kereso.js";
 /* VÁLTOZÓK */
 /* utazás elemek */
 const UTAZASOK_ELEM = document.querySelector("#utazasok");
+/**
+ * Az utazások gyűjteményét kezelő objektum.
+ * @type {Utazasok}
+ */
 const UTAZASOK = new Utazasok(UTAZASOK_ELEM);
 /* részletek (modal) kezelő – EGYSZER */
+/**
+ * A modális ablak kezeléséért felelős objektum.
+ * @type {UtazasReszlet}
+ */
 const UTAZAS_RESZLET = new UtazasReszlet();
 /* foglalás elemek */
 const FOGLALASOK_ELEM = document.querySelector("#foglalasok");
+/**
+ * A foglalások kezeléséért felelős objektum.
+ * @type {Foglalasok}
+ */
 const FOGLALASOK = new Foglalasok(foglalasLista, FOGLALASOK_ELEM);
 /* menüpontok, rendezés */
 const MENUPONTOK = document.querySelectorAll(".main-nav a");
@@ -22,7 +39,15 @@ const RENDEZES = document.querySelector(".rendezes");
 const ALAPERTELMEZETT = document.querySelector("#alap");
 const ARNO = document.querySelector("#ar_no");
 const ARCSOKK = document.querySelector("#ar_csokk");
+/**
+ * Az utazások rendezését végző objektum.
+ * @type {Rendezes}
+ */
 const RENDEZO = new Rendezes();
+/**
+ * Az utazások keresését végző objektum.
+ * @type {Kereso}
+ */
 const KERESO = new Kereso();
 const NEVKERESO = document.querySelector("#nevKereso");
 const LETSZAMKERESO = document.querySelector("#letszamKereso");
@@ -84,6 +109,11 @@ ARCSOKK.addEventListener("click", () => {
 });
 
 /* SEGÉDFÜGGVÉNY */
+/**
+ * Megjeleníti a paraméterként kapott utazáslistát.
+ *
+ * @param {Array<Object>} lista - A megjelenítendő utazások listája.
+ */
 function megjelenitUtazasok(lista) {
   UTAZASOK.utazasLista = [];
   lista.forEach(adat => {

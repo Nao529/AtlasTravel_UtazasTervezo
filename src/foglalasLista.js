@@ -1,3 +1,8 @@
+/**
+ * A rendszerben tárolt foglalások adatait tartalmazó tömb.
+ *
+ * @type {Array<Object>}
+ */
 export const foglalasLista = [
     {
         nev: "Maja",

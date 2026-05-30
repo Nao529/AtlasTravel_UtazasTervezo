@@ -1,3 +1,8 @@
+/**
+ * Az alkalmazásban megjelenített utazások adatait tartalmazó tömb.
+ *
+ * @type {Array<Object>}
+ */
 export const utazasLista = [
   {
     nev: "Párizs",
